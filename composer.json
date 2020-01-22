@@ -2,8 +2,7 @@
     "name": "imi/forwardtoconfigurable",
     "description": "",
     "require": {
-        "php": "~7.1|~7.2",
-        
+        "php": "~7.1.0|~7.2.0",
         "magento/magento-composer-installer": "*"
     },
     "type": "magento2-module",
