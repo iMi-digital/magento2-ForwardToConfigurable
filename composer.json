@@ -1,0 +1,33 @@
+{
+    "name": "imi/forwardtoconfigurable",
+    "description": "",
+    "require": {
+        "php": "~7.0",
+        
+        "magento/magento-composer-installer": "*"
+    },
+    "suggest": {
+
+    },
+    "type": "magento2-module",
+    "version": "0.1.0",
+    "license": [
+
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "IMI\\ForwardToConfigurable\\": ""
+        }
+    },
+    "extra": {
+        "map": [
+            [
+                "*",
+                "IMI/ForwardToConfigurable"
+            ]
+        ]
+    }
+}
