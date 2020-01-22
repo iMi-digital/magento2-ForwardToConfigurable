@@ -6,6 +6,8 @@
 
 namespace IMI\ForwardToConfigurable\Helper;
 
+use Magento\Catalog\Model\Product;
+use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
 use Magento\Framework\App\Helper\AbstractHelper;
 
 /**
@@ -18,18 +20,18 @@ class Data extends AbstractHelper
      * Generates config array to reflect the simple product's ($currentProduct)
      * configuration in its parent configurable product
      *
-     * @param \Magento\Catalog\Model\Product $parentProduct
-     * @param \Magento\Catalog\Model\Product $currentProduct
+     * @param Product $parentProduct
+     * @param Product $currentProduct
      * @return array array( configoptionid -> value )
      */
-    public function generateConfigData(\Magento\Catalog\Model\Product $parentProduct, \Magento\Catalog\Model\Product $currentProduct)
+    public function generateConfigData(Product $parentProduct, Product $currentProduct)
     {
-        /* @var $typeInstance \Magento\ConfigurableProduct\Model\Product\Type\Configurable */
+        /* @var $typeInstance Configurable */
         $typeInstance = $parentProduct->getTypeInstance();
-        if (!$typeInstance instanceof \Magento\ConfigurableProduct\Model\Product\Type\Configurable) {
-            return; // not a configurable product
+        if (!$typeInstance instanceof Configurable) {
+            return []; // not a configurable product
         }
-        $configData = array();
+        $configData = [];
         $attributes = $typeInstance->getUsedProductAttributes($parentProduct);
 
         foreach ($attributes as $code => $data) {
